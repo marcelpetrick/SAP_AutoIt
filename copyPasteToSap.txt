@@ -1,0 +1,12 @@
+Copy paste into the SAP-plattform
+
+- now: given string for the task; fixed times in two slices 09:15 to 12:00, then 12:30 to 18:00; then shutdown
+
+- when keypressed, do this once
+
+########################################
+
+open ideas:
+* offer a comfortable way to define the strings and times; maybe some "cfg-file" at the current binary location
+* add some error-management: don't continue if some labels are not found
+* maybe add something which checks the x-position of the columns - to avoid that smaller screen results in bad paste-ing

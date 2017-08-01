@@ -5,8 +5,13 @@
 
 HotKeySet("p", "checkForImage")
 
-global $y = 0, $x = 0
+; if there is no pause, then the insertion is missing sometimes because of SAP-hiccups
+Global $Sleeptime = 666
+; just as temporary variables ... TODO
+Global $y = 0
+Global $x = 0
 
+; Functions
 Func checkForImage()
    Local $search = _ImageSearch('checkImage.bmp', 0, $x, $y, 0)
    If $search = 1 Then
@@ -24,29 +29,62 @@ Func checkForImage()
    ClipPut($PspElement) ; copy
    Send("^v") ; paste
    ConsoleWrite("pasted now hopefully the $PspElement?"& @CRLF)
-   Sleep(333);
+   Sleep($Sleeptime);
    Send("{ENTER}")
+   Sleep($Sleeptime);
 
-   MouseMove($x + 1380, $y + 160 + 0, 5) ; local offset
+   MouseMove($x + 1400, $y + 160 + 0, 5) ; local offset
    MouseClick("left") ; activate
    Local $BeginUhrzeit0 = "09:15"
    ClipPut($BeginUhrzeit0) ; copy
    Send("^v") ; paste
    ConsoleWrite("pasted now hopefully the $BeginUhrzeit0"& @CRLF)
-   Sleep(333);
+   Sleep($Sleeptime);
    Send("{ENTER}")
+   Sleep($Sleeptime);
 
-   MouseMove($x + 1500, $y + 160 + 0, 5) ; local offset
+   MouseMove($x + 1530, $y + 160 + 0, 5) ; local offset
    MouseClick("left") ; activate
    Local $EndeUhrzeit0 = "12:00"
    ClipPut($EndeUhrzeit0) ; copy
    Send("^v") ; paste
    ConsoleWrite("pasted now hopefully the $EndeUhrzeit0"& @CRLF)
-   Sleep(333);
+   Sleep($Sleeptime);
    Send("{ENTER}")
-   Sleep(333);
+   Sleep($Sleeptime);
 
    ; next line: 190 for y
+
+      MouseMove($x + 80, $y + 190, 5) ; local offset
+   MouseClick("left") ; activate
+   ;Local $PspElement= "IN-VT-P1224106-0001" ; the string to use
+   ClipPut($PspElement) ; copy
+   Send("^v") ; paste
+   ConsoleWrite("pasted now hopefully the $PspElement?"& @CRLF)
+   Sleep($Sleeptime);
+   Send("{ENTER}")
+   Sleep($Sleeptime);
+
+   MouseMove($x + 1400, $y + 190 + 0, 5) ; local offset
+   MouseClick("left") ; activate
+   Local $BeginUhrzeit1 = "12:30"
+   ClipPut($BeginUhrzeit1) ; copy
+   Send("^v") ; paste
+   ConsoleWrite("pasted now hopefully the $BeginUhrzeit1"& @CRLF)
+   Sleep($Sleeptime);
+   Send("{ENTER}")
+   Sleep($Sleeptime);
+
+   MouseMove($x + 1530, $y + 190 + 0, 5) ; local offset
+   MouseClick("left") ; activate
+   Local $EndeUhrzeit1 = "18:00"
+   ClipPut($EndeUhrzeit1) ; copy
+   Send("^v") ; paste
+   ConsoleWrite("pasted now hopefully the $EndeUhrzeit1"& @CRLF)
+   Sleep($Sleeptime);
+   Send("{ENTER}")
+   Sleep($Sleeptime);
+
 EndFunc
 
 while 1
